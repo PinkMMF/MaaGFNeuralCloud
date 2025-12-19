@@ -1,7 +1,7 @@
 {
     "interface_version": 2,
     "name": "少女前线：云图计划自动化小助手",
-    "welcome": "首次使用！欢迎使用少女前线：云图计划自动化小助手！请在使用前确保仔细阅读过文档。",
+    "icon": "./resource/base/图标/MaaGFNeuralCloud.png",
     "github": "https://github.com/PinkMMF/MaaGFNeuralCloud",
     "controller": [
         {
@@ -16,55 +16,50 @@
             "path": [
                 "./resource/base"
             ]
-        },
-        {
-            "name": "B 服",
-            "path": [
-                "{PROJECT_DIR}/resource",
-                "{PROJECT_DIR}/resource_bilibili"
-            ]
         }
     ],
     "task": [
         {
             "name": "启动游戏",
-            "entry": "StartGame"
+            "entry": "StartGame",
+            "default_check": true
         },
         {
             "name": "宿舍收取",
-            "entry": "Dormitory"
-        },
-        {
-            "name": "基础检索",
-            "entry": "BasicSearch"
-        },
-        {
-            "name": "收集任务奖励",
-            "entry": "CollectReward"
+            "entry": "Dormitory",
+            "default_check": true
         },
         {
             "name": "绿洲收取",
-            "entry": "Oasis"
+            "entry": "Oasis",
+            "default_check": true
         },
         {
             "name": "加工厂领取及生产",
-            "entry": "Workshop"
+            "entry": "Workshop",
+            "default_check": true
         },
         {
             "name": "漏洞排查",
-            "entry": "ExploreVulnerability"
+            "entry": "ExploreVulnerability",
+            "description": "只适配到最高难度，请解锁最高难度快速作战后再使用此功能",
+            "default_check": true
         },
         {
             "name": "故障协议",
-            "entry": "ExploreFault"
+            "entry": "ExploreFault",
+            "default_check": true
         },
         {
             "name": "碎片搜索",
-            "entry": "ExploreFragsSearch"
+            "entry": "ExploreFragsSearch",
+            "description": "使用该功能前确保碎片搜索中关注且仅关注三个人形",
+            "default_check": true
         },
         {
             "name": "每日双倍",
-            "entry": "ExploreDoubleDay"
+            "entry": "ExploreDoubleDay",
+            "default_check": true
         },
         {
             "name": "商店收取",
@@ -72,7 +67,14 @@
             "option": [
                 "故障协议区",
                 "漏洞排查区"
-            ]
+            ],
+            "default_check": true
+        },
+        {
+            "name": "收集任务奖励",
+            "entry": "CollectReward",
+            "description": "因每日完成任务会送体力，建议一前一后设置两次该任务",
+            "default_check": true
         },
         {
             "name": "资源采集",
@@ -91,8 +93,19 @@
             ]
         },
         {
+            "name": "收集任务奖励",
+            "entry": "CollectReward",
+            "description": "因每日完成任务会送体力，建议一前一后设置两次该任务"
+        },
+        {
+            "name": "基础检索",
+            "entry": "BasicSearch",
+            "default_check": true
+        },
+        {
             "name": "关闭游戏",
-            "entry": "StopGame"
+            "entry": "StopGame",
+            "default_check": true
         }
     ],
     "option": {
