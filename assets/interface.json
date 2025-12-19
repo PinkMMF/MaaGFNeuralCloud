@@ -3,7 +3,6 @@
     "name": "少女前线：云图计划自动化小助手",
     "welcome": "首次使用！欢迎使用少女前线：云图计划自动化小助手！请在使用前确保仔细阅读过文档。",
     "github": "https://github.com/PinkMMF/MaaGFNeuralCloud",
-    "version": "1.0.0",
     "controller": [
         {
             "name": "安卓端",
