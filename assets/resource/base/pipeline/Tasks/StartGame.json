@@ -1,0 +1,60 @@
+{
+    "StartGame": {
+        "doc": "启动游戏",
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.sunborn.neuralcloud.cn"
+            }
+        },
+        "post_wait_freezes": 3000,
+        "next": [
+            "StartGame2",
+            "backHomeDoNothing"
+        ]
+    },
+    "StartGame2": {
+        "rate_limit": 3000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "开始游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 3000,
+        "next": [
+            "StartGameAnnouncement",
+            "backHomeDoNothing"
+        ]
+    },
+    "StartGameAnnouncement": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "Logo开始界面/叉号公告.png"
+                ],
+                "roi": [
+                    37,
+                    81,
+                    1215,
+                    539
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]receiveReward",
+            "StartGameAnnouncement",
+            "backHomeDoNothing"
+        ]
+    }
+}

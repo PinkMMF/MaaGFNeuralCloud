@@ -1,0 +1,21 @@
+{
+    "receiveReward": {
+        "doc": "获得奖励时点击屏幕继续",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "获得奖励",
+                    "点击屏幕继续",
+                    "点击任意位置继续",
+                    "补给获取",
+                    "签到奖励"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "back": {
+        "doc": "持续按返回键以应对不存在一键返回主界面的场景",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "返回"
+                ],
+                "roi": [
+                    45,
+                    28,
+                    162,
+                    47
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "back",
+            "backHomeDoNothing"
+        ]
+    }
+}

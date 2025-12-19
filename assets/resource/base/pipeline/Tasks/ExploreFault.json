@@ -1,0 +1,174 @@
+{
+    "ExploreFault": {
+        "doc": "故障协议",
+        "next": [
+            "ExploreFaultGo",
+            "[JumpBack]exploreResourcesLeftGo"
+        ]
+    },
+    "ExploreFaultGo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "故障协议"
+                ],
+                "roi": [
+                    36,
+                    344,
+                    611,
+                    55
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreFaultYes",
+            "ExploreFaultNo"
+        ]
+    },
+    "ExploreFaultYes": {
+        "doc": "检测是否还有奖励未领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "下阶段奖励"
+                ],
+                "roi": [
+                    232,
+                    609,
+                    134,
+                    95
+                ]
+            }
+        },
+        "next": [
+            "ExploreFaultExplorationProtocolGo"
+        ]
+    },
+    "ExploreFaultExplorationProtocolGo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "探索"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]ExploreFaultExplorationProtocolGo2",
+            "ExploreFaultReceiveReward"
+        ]
+    },
+    "ExploreFaultExplorationProtocolGo2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "准备作战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "battle"
+        ]
+    },
+    "ExploreFaultNo": {
+        "doc": "检测是否还有奖励未领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "已全部领取"
+                ],
+                "roi": [
+                    220,
+                    615,
+                    154,
+                    79
+                ]
+            }
+        },
+        "next": [
+            "backOne",
+            "[JumpBack]backHome",
+            "[JumpBack]back"
+        ]
+    },
+    "ExploreFaultReceiveReward": {
+        "doc": "进入奖励领取界面",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "下阶段奖励"
+                ],
+                "roi": [
+                    232,
+                    609,
+                    134,
+                    95
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreFaultReceiveReward2",
+            "ExploreFaultReceiveReward3",
+            "backTwo"
+        ]
+    },
+    "ExploreFaultReceiveReward2": {
+        "doc": "奖励领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "点击领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ExploreFaultReceiveReward2",
+            "ExploreFaultReceiveReward3",
+            "backTwo"
+        ]
+    },
+    "ExploreFaultReceiveReward3": {
+        "doc": "石英砂和以太令牌领取",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "探索/领取奖励故障协议.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]receiveReward",
+            "ExploreFaultReceiveReward3",
+            "backTwo"
+        ]
+    }
+}

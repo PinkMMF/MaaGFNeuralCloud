@@ -1,0 +1,226 @@
+{
+    "ExploreDoubleDay": {
+        "doc": "资源采集",
+        "next": [
+            "ExploreDoubleDayGo",
+            "[JumpBack]exploreResourcesRightGo"
+        ]
+    },
+    "ExploreDoubleDayGo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "资源采集"
+                ],
+                "roi": [
+                    975,
+                    348,
+                    274,
+                    51
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreDoubleDayUpwardGo",
+            "ExploreDoubleDayDownGo",
+            "backOne"
+        ]
+    },
+    "ExploreDoubleDayUpwardGo": {
+        "doc": "选择前三项中的双倍采集",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "双倍"
+                ],
+                "roi": [
+                    19,
+                    106,
+                    282,
+                    271
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ExploreDoubleDayUpwardBattle"
+        ]
+    },
+    "ExploreDoubleDayUpwardBattle": {
+        "doc": "点击自动战斗",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "自动战斗"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreDoubleDayUpwardBattleGo",
+            "ExploreDoubleDayKeysNo"
+        ]
+    },
+    "ExploreDoubleDayUpwardBattleGo": {
+        "doc": "点击准备作战",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "准备作战"
+                ],
+                "roi": [
+                    227,
+                    136,
+                    828,
+                    448
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]battleResource",
+            "ExploreDoubleDayUpwardGo",
+            "ExploreDoubleDayDownGo",
+            "backOne"
+        ]
+    },
+    "ExploreDoubleDayDownGo": {
+        "doc": "选择潜能特训双倍采集",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "双倍"
+                ],
+                "roi": [
+                    20,
+                    378,
+                    282,
+                    92
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ExploreDoubleDayDownGo2"
+        ]
+    },
+    "ExploreDoubleDayDownGo2": {
+        "doc": "选择潜能特训双倍采集",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "双倍"
+                ],
+                "roi": [
+                    18,
+                    302,
+                    282,
+                    380
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "ExploreDoubleDayDownBattle"
+        ]
+    },
+    "ExploreDoubleDayDownBattle": {
+        "doc": "点击自动战斗",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "自动战斗"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreDoubleDayDownBattleGo",
+            "ExploreDoubleDayKeysNo"
+        ]
+    },
+    "ExploreDoubleDayDownBattleGo": {
+        "doc": "点击准备作战",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "准备作战"
+                ],
+                "roi": [
+                    227,
+                    136,
+                    828,
+                    448
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]battleResource",
+            "ExploreDoubleDayDownGo2",
+            "backOne"
+        ]
+    },
+    "ExploreDoubleDayKeysNo": {
+        "doc": "无体力",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "恢复"
+                ],
+                "roi": [
+                    742,
+                    89,
+                    520,
+                    72
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    347,
+                    142,
+                    346,
+                    422
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "backOne"
+        ]
+    }
+}

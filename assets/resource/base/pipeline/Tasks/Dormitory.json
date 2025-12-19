@@ -1,0 +1,207 @@
+{
+    "Dormitory": {
+        "doc": "宿舍奖励领取及参观",
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "DormitroyGo"
+        ]
+    },
+    "DormitroyGo": {
+        "doc": "进入宿舍",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    680,
+                    571,
+                    458,
+                    74
+                ],
+                "expected": [
+                    "宿舍"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]resourceCollect",
+            "DormitoryVisitGo"
+        ]
+    },
+    "DormitoryVisitGo": {
+        "doc": "进入宿舍参观列表",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "宿舍参观"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 100,
+        "next": [
+            "DormitoryVisitWeekRewardYes",
+            "DormitoryVisitWeekRewardNo"
+        ]
+    },
+    "DormitoryVisitWeekRewardYes": {
+        "doc": "查询本周是否还能领取奖励",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "5/5",
+                    "4/5",
+                    "3/5",
+                    "2/5",
+                    "1/5"
+                ],
+                "roi": [
+                    193,
+                    625,
+                    197,
+                    42
+                ]
+            }
+        },
+        "next": [
+            "DormitoryVisit"
+        ]
+    },
+    "DormitoryVisit": {
+        "doc": "参观宿舍",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "随便逛逛"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]DormitoryLikeYes",
+            "DormitoryLikeNo"
+        ]
+    },
+    "DormitoryLikeYes": {
+        "doc": "宿舍可以点赞",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "upper": [
+                    251,
+                    250,
+                    249
+                ],
+                "lower": [
+                    231,
+                    230,
+                    229
+                ],
+                "roi": [
+                    1033,
+                    556,
+                    67,
+                    48
+                ]
+            }
+        },
+        "next": [
+            "DormitoryLike"
+        ]
+    },
+    "DormitoryLikeNo": {
+        "doc": "宿舍已经点赞",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "upper": [
+                    171,
+                    169,
+                    165
+                ],
+                "lower": [
+                    151,
+                    149,
+                    145
+                ],
+                "roi": [
+                    1033,
+                    556,
+                    67,
+                    48
+                ]
+            }
+        },
+        "next": [
+            "DormitoryVisitGo"
+        ]
+    },
+    "DormitoryLike": {
+        "doc": "好友宿舍点赞",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "点赞"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 100,
+        "next": [
+            "receiveReward"
+        ]
+    },
+    "DormitoryVisitWeekRewardNo": {
+        "doc": "查询本周是否还能领取奖励",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/5"
+                ],
+                "roi": [
+                    193,
+                    625,
+                    197,
+                    42
+                ]
+            }
+        },
+        "next": [
+            "DormitoryVisitBack"
+        ]
+    },
+    "DormitoryVisitBack": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "宿舍/宿舍参观返回键.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 100,
+        "next": [
+            "DormitoryVisitBack",
+            "back"
+        ]
+    }
+}

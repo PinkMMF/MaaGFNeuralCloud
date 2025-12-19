@@ -1,0 +1,67 @@
+{
+    "battleResource": {
+        "doc": "收集资源战斗模块",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "自动战斗"
+                ],
+                "roi": [
+                    957,
+                    468,
+                    316,
+                    236
+                ]
+            }
+        },
+        "next": [
+            "battleResourceStart"
+        ]
+    },
+    "battleResourceStart": {
+        "doc": "自动作战开始",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "自动战斗"
+                ],
+                "roi": [
+                    957,
+                    468,
+                    316,
+                    236
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 7000,
+        "next": [
+            "[JumpBack]battlePlanYes",
+            "battleResourceReceiveReward"
+        ]
+    },
+    "battleResourceReceiveReward": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确认"
+                ],
+                "roi": [
+                    229,
+                    138,
+                    824,
+                    446
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500
+    }
+}

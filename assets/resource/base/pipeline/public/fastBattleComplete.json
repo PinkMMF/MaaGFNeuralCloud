@@ -1,0 +1,15 @@
+{
+    "fastBattleComplete": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "完成作战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

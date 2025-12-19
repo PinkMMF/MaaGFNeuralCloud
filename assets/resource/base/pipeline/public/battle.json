@@ -1,0 +1,181 @@
+{
+    "battle": {
+        "doc": "非资源收取战斗模块",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "作战开始"
+                ],
+                "roi": [
+                    793,
+                    437,
+                    477,
+                    270
+                ]
+            }
+        },
+        "next": [
+            "battleStart"
+        ]
+    },
+    "battleStart": {
+        "doc": "作战开始",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "作战开始"
+                ],
+                "roi": [
+                    794,
+                    475,
+                    487,
+                    244
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 5000,
+        "next": [
+            "battlePlanGo"
+        ]
+    },
+    "battlePlanGo": {
+        "doc": "开启计划模式",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "OFF"
+                ],
+                "roi": [
+                    3,
+                    490,
+                    311,
+                    226
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "battlePlanStart"
+        ]
+    },
+    "battlePlanStart": {
+        "doc": "执行计划模式",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "执行计划"
+                ],
+                "roi": [
+                    229,
+                    440,
+                    311,
+                    227
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 8000,
+        "next": [
+            "[JumpBack]battlePlanYes",
+            "battleSuccessful",
+            "battleFailed"
+        ]
+    },
+    "battlePlanYes": {
+        "doc": "检测是否AI接管中",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "AI接管中",
+                    "选择函数",
+                    "购买函数",
+                    "升级函数"
+                ],
+                "roi": [
+                    430,
+                    107,
+                    445,
+                    37
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "post_wait_freezes": 8000
+    },
+    "battleSuccessful": {
+        "doc": "作战成功",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "作战成功"
+                ]
+            }
+        },
+        "next": [
+            "battleLeave"
+        ]
+    },
+    "battleFailed": {
+        "doc": "作战失败",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "作战失败"
+                ]
+            }
+        },
+        "next": [
+            "battleFailedLeave"
+        ]
+    },
+    "battleFailedLeave": {
+        "doc": "失败撤退",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "撤退"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "battleLeave"
+        ]
+    },
+    "battleLeave": {
+        "doc": "离开作战",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "返回"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500
+    }
+}

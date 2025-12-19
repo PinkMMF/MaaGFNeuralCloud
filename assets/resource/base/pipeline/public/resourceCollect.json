@@ -1,0 +1,24 @@
+{
+    "resourceCollect": {
+        "doc": "宿舍、绿洲和加工厂资源收取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    487,
+                    241,
+                    108
+                ],
+                "expected": [
+                    "收取资源",
+                    "全部领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "backHome": {
+        "doc": "返回主界面",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    217,
+                    28,
+                    75,
+                    47
+                ],
+                "template": [
+                    "UI/主界面.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "backHome",
+            "backHomeDoNothing"
+        ]
+    },
+    "backHomeDoNothing": {
+        "doc": "识别是否在主界面",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "主界面/好友.png",
+                    "主界面/邮箱.png",
+                    "主界面/设置.png"
+                ]
+            }
+        },
+        "action": "DoNothing"
+    }
+}

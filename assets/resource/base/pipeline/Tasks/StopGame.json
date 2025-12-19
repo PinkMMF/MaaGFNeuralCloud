@@ -1,0 +1,11 @@
+{
+    "StopGame": {
+        "doc": "关闭游戏",
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.sunborn.neuralcloud.cn"
+            }
+        }
+    }
+}

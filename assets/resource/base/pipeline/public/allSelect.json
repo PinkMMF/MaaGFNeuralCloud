@@ -1,0 +1,59 @@
+{
+    "allSelect": {
+        "doc": "商店购买选择全部",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "商店/底格币.png",
+                    "商店/声望积分.png",
+                    "商店/流光晶片.png"
+                ],
+                "roi": [
+                    740,
+                    624,
+                    38,
+                    37
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    734,
+                    530,
+                    114,
+                    32
+                ]
+            }
+        },
+        "next": [
+            "allSelectBuy"
+        ]
+    },
+    "allSelectBuy": {
+        "doc": "选择全部后购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "购买"
+                ],
+                "roi": [
+                    985,
+                    609,
+                    204,
+                    69
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "receiveReward"
+        ]
+    }
+}

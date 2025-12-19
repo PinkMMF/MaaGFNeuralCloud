@@ -1,0 +1,135 @@
+{
+    "completeTask": {
+        "doc": "领取每日及每周任务奖励",
+        "max_hit": 1,
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "completeTaskGo"
+        ]
+    },
+    "completeTaskGo": {
+        "doc": "进入任务领取界面",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "主界面/任务.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]completeTaskDailyGo",
+            "[JumpBack]completeTaskDayGo",
+            "[JumpBack]completeTaskWeekGo",
+            "backHome",
+            "back"
+        ]
+    },
+    "completeTaskDailyGo": {
+        "doc": "进入日常任务界面",
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "日常任务"
+                ],
+                "roi": [
+                    2,
+                    93,
+                    221,
+                    250
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500
+    },
+    "completeTaskDayGo": {
+        "doc": "每日任务领取",
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "每日任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]completeTaskCollectYes",
+            "completeTaskCollectNo"
+        ]
+    },
+    "completeTaskCollectYes": {
+        "doc": "验证是否可以领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "全部领取"
+                ],
+                "roi": [
+                    227,
+                    512,
+                    1016,
+                    89
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "receiveReward"
+        ]
+    },
+    "completeTaskCollectNo": {
+        "doc": "验证是否可以领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "立即前往"
+                ],
+                "roi": [
+                    1051,
+                    167,
+                    153,
+                    88
+                ]
+            }
+        },
+        "action": "DoNothing"
+    },
+    "completeTaskWeekGo": {
+        "doc": "每周任务领取",
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "每周任务"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]completeTaskCollectYes",
+            "completeTaskCollectNo"
+        ]
+    }
+}

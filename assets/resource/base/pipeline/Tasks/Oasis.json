@@ -1,0 +1,37 @@
+{
+    "Oasis": {
+        "doc": "绿洲资源资源收取",
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "clickoasis"
+        ]
+    },
+    "clickoasis": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    522,
+                    395,
+                    459,
+                    103
+                ],
+                "expected": [
+                    "绿洲",
+                    "绿",
+                    "洲"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]resourceCollect",
+            "backHome",
+            "back"
+        ]
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "Workshop": {
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "WorkshopGo"
+        ]
+    },
+    "WorkshopGo": {
+        "doc": "进入加工厂",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    801,
+                    571,
+                    441,
+                    75
+                ],
+                "expected": [
+                    "加工厂"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumopBack]WorkshopReceive",
+            "WorkshopProduct"
+        ]
+    },
+    "WorkshopReceive": {
+        "doc": "领取加工厂物资",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "全部领取"
+                ]
+            }
+        },
+        "next": [
+            "resourceCollect"
+        ]
+    },
+    "WorkshopProduct": {
+        "doc": "加工厂生产",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "生产"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 500,
+        "next": [
+            "backHome",
+            "back"
+        ]
+    }
+}

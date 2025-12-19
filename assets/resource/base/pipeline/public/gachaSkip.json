@@ -1,0 +1,20 @@
+{
+    "gachaSkip": {
+        "doc": "抽卡动画跳过",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "跳过"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "receiveReward"
+        ]
+    }
+}

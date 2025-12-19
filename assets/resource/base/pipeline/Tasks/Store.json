@@ -1,0 +1,928 @@
+{
+    "Store": {
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "StoreGo"
+        ]
+    },
+    "StoreGo": {
+        "doc": "进入商店",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    649,
+                    492,
+                    631,
+                    228
+                ],
+                "expected": [
+                    "补给"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreSupplyBagGo"
+        ]
+    },
+    "StoreSupplyBagGo": {
+        "doc": "进入补给包商店",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    2,
+                    125,
+                    191,
+                    595
+                ],
+                "expected": [
+                    "补给包"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]StoreSupplyBagDay",
+            "[JumpBack]StoreSupplyBagWeek",
+            "[JumpBack]StoreSupplyBagMonth",
+            "StoreSwipeDown"
+        ]
+    },
+    "StoreSupplyBagDay": {
+        "doc": "每日补给包领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    206,
+                    191,
+                    779,
+                    281
+                ],
+                "expected": [
+                    "每日"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreSupplyBagReceive"
+        ]
+    },
+    "StoreSupplyBagReceive": {
+        "doc": "免费补给包领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    707,
+                    629,
+                    525,
+                    82
+                ],
+                "expected": [
+                    "免费"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "receiveReward"
+        ]
+    },
+    "StoreSupplyBagWeek": {
+        "doc": "每周补给包领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    206,
+                    191,
+                    779,
+                    281
+                ],
+                "expected": [
+                    "每周"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreSupplyBagReceive"
+        ]
+    },
+    "StoreSupplyBagMonth": {
+        "doc": "每月补给包领取",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    206,
+                    191,
+                    779,
+                    281
+                ],
+                "expected": [
+                    "每月"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreSupplyBagReceive"
+        ]
+    },
+    "StoreSwipeDown": {
+        "doc": "从上向下滑动至物资商店",
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    85,
+                    640,
+                    30,
+                    27
+                ],
+                "end": [
+                    92,
+                    94,
+                    32,
+                    29
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreSpecialMaterialsGo",
+            "StoreSwipeDown"
+        ]
+    },
+    "StoreSpecialMaterialsGo": {
+        "doc": "进入特供物资商店",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    3,
+                    473,
+                    187,
+                    106
+                ],
+                "expected": [
+                    "特供"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StoreGeneralShopGo"
+        ]
+    },
+    "StoreGeneralShopGo": {
+        "doc": "进入标准购置区",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    15,
+                    330,
+                    173,
+                    389
+                ],
+                "expected": [
+                    "标准"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "StoreGeneralShopBuy",
+            "StoreFriendShopGo"
+        ]
+    },
+    "StoreGeneralShopBuy": {
+        "doc": "购买标准购置区商品",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    274,
+                    404,
+                    36,
+                    37
+                ],
+                "lower": [
+                    217,
+                    217,
+                    217
+                ],
+                "upper": [
+                    237,
+                    237,
+                    237
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreGeneralShopBuyNo",
+            "StoreGeneralShopBuyYes"
+        ]
+    },
+    "StoreGeneralShopBuyNo": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "无法"
+                ],
+                "roi": [
+                    700,
+                    594,
+                    541,
+                    99
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    193,
+                    167,
+                    427,
+                    451
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFriendShopGo"
+        ]
+    },
+    "StoreGeneralShopBuyYes": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "购买"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]allSelect",
+            "StoreGeneralShopBuy",
+            "StoreFriendShopGo"
+        ]
+    },
+    "StoreFriendShopGo": {
+        "doc": "进入助战兑换区",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    15,
+                    330,
+                    173,
+                    389
+                ],
+                "expected": [
+                    "助战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]StoreFriendShopPointCollect",
+            "StoreFriendShopBuy",
+            "StoreFaultShopGo"
+        ]
+    },
+    "StoreFriendShopPointCollect": {
+        "doc": "助战点收集",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    998,
+                    63,
+                    265,
+                    66
+                ],
+                "expected": [
+                    "积分"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "receiveReward"
+        ]
+    },
+    "StoreFriendShopBuy": {
+        "doc": "助战商店每周限定购买",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    207,
+                    202,
+                    1050,
+                    510
+                ],
+                "template": [
+                    "商店/高级检索指令.png",
+                    "商店/技能枢核.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFriendShopBuyNo",
+            "StoreFriendShopBuyYes"
+        ]
+    },
+    "StoreFriendShopBuyNo": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "无法"
+                ],
+                "roi": [
+                    700,
+                    594,
+                    541,
+                    99
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    193,
+                    167,
+                    427,
+                    451
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopGo"
+        ]
+    },
+    "StoreFriendShopBuyYes": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "购买"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]allSelect",
+            "StoreFriendShopBuy",
+            "StoreFaultShopGo"
+        ]
+    },
+    "StoreFaultShopGo": {
+        "doc": "前往故障协议区",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    15,
+                    330,
+                    173,
+                    389
+                ],
+                "expected": [
+                    "故障"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopFrags",
+            "StoreFaultShopEXdoctor",
+            "StoreFaultShopEXspecialist",
+            "StoreFaultShopEXmarksman",
+            "StoreFaultShopEXguardian",
+            "StoreFaultShopEXwarrior",
+            "StoreVulnerabilityShopGo"
+        ]
+    },
+    "StoreFaultShopFrags": {
+        "doc": "购买心智碎片",
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    239,
+                    321,
+                    995,
+                    88
+                ],
+                "expected": [
+                    "心智碎片"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopBuyNo",
+            "StoreFaultShopBuyYes"
+        ]
+    },
+    "StoreFaultShopBuyNo": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "无法"
+                ],
+                "roi": [
+                    700,
+                    594,
+                    541,
+                    99
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    193,
+                    167,
+                    427,
+                    451
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopGo"
+        ]
+    },
+    "StoreFaultShopBuyYes": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "购买"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]allSelect",
+            "[Anchor]StoreShopBuy",
+            "StoreVulnerabilityShopGo"
+        ]
+    },
+    "StoreFaultShopEXdoctor": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·医师"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopBuyNo",
+            "StoreFaultShopBuyYes"
+        ]
+    },
+    "StoreFaultShopEXspecialist": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·特种"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopBuyNo",
+            "StoreFaultShopBuyYes"
+        ]
+    },
+    "StoreFaultShopEXmarksman": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·射手"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopBuyNo",
+            "StoreFaultShopBuyYes"
+        ]
+    },
+    "StoreFaultShopEXguardian": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·守卫"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopBuyNo",
+            "StoreFaultShopBuyYes"
+        ]
+    },
+    "StoreFaultShopEXwarrior": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·战士"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreFaultShopBuyNo",
+            "StoreFaultShopBuyYes"
+        ]
+    },
+    "StoreVulnerabilityShopGo": {
+        "doc": "进入漏洞排查区",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    15,
+                    330,
+                    173,
+                    389
+                ],
+                "expected": [
+                    "漏洞"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopFrags",
+            "StoreVulnerabilityShopEXdoctor",
+            "StoreVulnerabilityShopEXspecialist",
+            "StoreVulnerabilityShopEXmarksman",
+            "StoreVulnerabilityShopEXguardian",
+            "StoreVulnerabilityShopEXwarrior",
+            "backHome",
+            "back"
+        ]
+    },
+    "StoreVulnerabilityShopBuyNo": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "无法"
+                ],
+                "roi": [
+                    700,
+                    594,
+                    541,
+                    99
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    193,
+                    167,
+                    427,
+                    451
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "backHome",
+            "back"
+        ]
+    },
+    "StoreVulnerabilityShopBuyYes": {
+        "doc": "检查是否可以购买",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "购买"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]allSelect",
+            "[Anchor]StoreShopBuy",
+            "backHome",
+            "back"
+        ]
+    },
+    "StoreVulnerabilityShopFrags": {
+        "doc": "购买心智碎片",
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    239,
+                    321,
+                    995,
+                    88
+                ],
+                "expected": [
+                    "心智碎片"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopBuyNo",
+            "StoreVulnerabilityShopBuyYes"
+        ]
+    },
+    "StoreVulnerabilityShopEXdoctor": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·医师"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopBuyNo",
+            "StoreVulnerabilityShopBuyYes"
+        ]
+    },
+    "StoreVulnerabilityShopEXspecialist": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·特种"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopBuyNo",
+            "StoreVulnerabilityShopBuyYes"
+        ]
+    },
+    "StoreVulnerabilityShopEXmarksman": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·射手"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopBuyNo",
+            "StoreVulnerabilityShopBuyYes"
+        ]
+    },
+    "StoreVulnerabilityShopEXguardian": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·守卫"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopBuyNo",
+            "StoreVulnerabilityShopBuyYes"
+        ]
+    },
+    "StoreVulnerabilityShopEXwarrior": {
+        "enabled": false,
+        "anchor": [
+            "StoreShopBuy"
+        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    322,
+                    1009,
+                    334
+                ],
+                "expected": [
+                    "极限突破控件·战士"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "StoreVulnerabilityShopBuyNo",
+            "StoreVulnerabilityShopBuyYes"
+        ]
+    }
+}

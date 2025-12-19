@@ -1,0 +1,248 @@
+{
+    "ExploreFragsSearch": {
+        "doc": "碎片搜索",
+        "next": [
+            "ExploreFragsSearchGo",
+            "[JumpBack]exploreResourcesLeftGo"
+        ]
+    },
+    "ExploreFragsSearchGo": {
+        "doc": "进入碎片搜索",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "碎片搜索"
+                ],
+                "roi": [
+                    288,
+                    344,
+                    703,
+                    55
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreFragsSearchBattleYes",
+            "ExploreFragsSearchBattleNo"
+        ]
+    },
+    "ExploreFragsSearchBattleYes": {
+        "doc": "检测是否有剩余次数",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "[1-9]/10",
+                    "10/10"
+                ],
+                "roi": [
+                    842,
+                    27,
+                    201,
+                    42
+                ]
+            }
+        },
+        "next": [
+            "ExploreFragsSearchBattleGoYes",
+            "ExploreFragsSearchBattleGoNo"
+        ]
+    },
+    "ExploreFragsSearchBattleGoYes": {
+        "doc": "检测当前人形是否还存在剩余次数",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "upper": [
+                    241,
+                    241,
+                    241
+                ],
+                "lower": [
+                    221,
+                    221,
+                    221
+                ],
+                "roi": [
+                    761,
+                    594,
+                    196,
+                    57
+                ]
+            }
+        },
+        "next": [
+            "ExploreFragsSearchBattle"
+        ]
+    },
+    "ExploreFragsSearchBattleGoNo": {
+        "doc": "检测当前人形是否还存在剩余次数",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "upper": [
+                    91,
+                    91,
+                    90
+                ],
+                "lower": [
+                    71,
+                    71,
+                    70
+                ],
+                "roi": [
+                    761,
+                    594,
+                    196,
+                    57
+                ]
+            }
+        },
+        "next": [
+            "ExploreFragsSearchNextSwipeUpward"
+        ]
+    },
+    "ExploreFragsSearchBattleNo": {
+        "doc": "检测是否有剩余次数",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/10"
+                ],
+                "roi": [
+                    842,
+                    27,
+                    201,
+                    42
+                ]
+            }
+        },
+        "next": [
+            "backOne",
+            "backHome",
+            "back"
+        ]
+    },
+    "ExploreFragsSearchBattle": {
+        "doc": "点击自动战斗",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "自动战斗"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreFragsSearchBattleGo",
+            "ExploreFragsSearchKeysNo"
+        ]
+    },
+    "ExploreFragsSearchBattleGo": {
+        "doc": "点击准备作战",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "准备作战"
+                ],
+                "roi": [
+                    227,
+                    136,
+                    828,
+                    448
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]battleResource",
+            "ExploreFragsSearchNextSwipeUpward"
+        ]
+    },
+    "ExploreFragsSearchNextSwipeUpward": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    72,
+                    207,
+                    183,
+                    61
+                ],
+                "end": [
+                    72,
+                    558,
+                    183,
+                    61
+                ]
+            }
+        },
+        "next": [
+            "ExploreFragsSearchNext"
+        ],
+        "post_wait_freezes": 500
+    },
+    "ExploreFragsSearchNext": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    31,
+                    289,
+                    256,
+                    79
+                ]
+            }
+        },
+        "next": [
+            "ExploreFragsSearchBattleYes",
+            "ExploreFragsSearchBattleNo"
+        ]
+    },
+    "ExploreFragsSearchKeysNo": {
+        "doc": "无体力",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "恢复"
+                ],
+                "roi": [
+                    742,
+                    89,
+                    520,
+                    72
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    347,
+                    142,
+                    346,
+                    422
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "backOne"
+        ]
+    }
+}

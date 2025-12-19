@@ -1,0 +1,35 @@
+{
+    "CollectReward": {
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "[JumpBack]completeTask",
+            "CollectRewardBattlePassGo"
+        ]
+    },
+    "CollectRewardBattlePassGo": {
+        "next": [
+            "[JumpBack]battlePassGo",
+            "[JumpBack]CollectRewardBattlePass",
+            "backHome",
+            "back"
+        ]
+    },
+    "CollectRewardBattlePass": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "全部领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 500,
+        "next": [
+            "receiveReward"
+        ]
+    }
+}

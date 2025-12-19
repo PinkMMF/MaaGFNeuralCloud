@@ -1,0 +1,47 @@
+{
+    "backTwo": {
+        "doc": "按两次次返回键中的第一次",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "返回"
+                ],
+                "roi": [
+                    45,
+                    28,
+                    162,
+                    47
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "backTwo2"
+        ]
+    },
+    "backTwo2": {
+        "doc": "按两次次返回键中的第二次",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "返回"
+                ],
+                "roi": [
+                    45,
+                    28,
+                    162,
+                    47
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000
+    }
+}

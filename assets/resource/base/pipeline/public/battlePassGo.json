@@ -1,0 +1,17 @@
+{
+    "battlePassGo": {
+        "doc": "请先确保在主界面再执行此进入战令节点",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "标准行动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 500
+    }
+}

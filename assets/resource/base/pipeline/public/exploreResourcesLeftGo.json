@@ -1,0 +1,83 @@
+{
+    "exploreResourcesLeftGo": {
+        "doc": "前往探索资源区的左边",
+        "next": [
+            "exploreResourcesLeftYes",
+            "exploreResourcesLeftNo"
+        ]
+    },
+    "exploreResourcesLeftYes": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "资源"
+                ],
+                "roi": [
+                    20,
+                    673,
+                    1241,
+                    38
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "exploreResourcesSwipeleft"
+        ]
+    },
+    "exploreResourcesLeftNo": {
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "exploreResourcesLeftGo1"
+        ]
+    },
+    "exploreResourcesLeftGo1": {
+        "doc": "进入探索界面",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "探索"
+                ],
+                "roi": [
+                    522,
+                    184,
+                    461,
+                    60
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 1000,
+        "next": [
+            "exploreResourcesLeftYes"
+        ]
+    },
+    "exploreResourcesSwipeleft": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    118,
+                    241,
+                    129,
+                    120
+                ],
+                "end": [
+                    979,
+                    252,
+                    129,
+                    120
+                ]
+            }
+        },
+        "post_wait_freezes": 500
+    }
+}

@@ -1,46 +1,21 @@
 {
-    // 本文件主要定义了通用 UI 的行为和显示内容
-    // 可参考文档和示例添加更多您需要的功能
-    // 文档：https://github.com/MaaXYZ/MaaFramework/blob/main/docs/zh_cn/3.3-ProjectInterfaceV2%E5%8D%8F%E8%AE%AE.md
-    // 示例：https://github.com/MaaXYZ/MaaFramework/blob/main/sample/interface.json
     "interface_version": 2,
-    "name": "MaaXXX",
-    "description": "这是一个使用 MaaFramework 创建的新项目。",
-    "contact": "QQ群: 123456789",
-    "license": "MIT",
-    "welcome": "首次使用！欢迎使用 MAA!",
-    // 填写项目地址和版本号可实现自动更新功能
-    "github": "https://github.com/MaaXYZ/MaaPracticeBoilerplate",
+    "name": "少女前线：云图计划自动化小助手",
+    "welcome": "首次使用！欢迎使用少女前线：云图计划自动化小助手！请在使用前确保仔细阅读过文档。",
+    "github": "https://github.com/PinkMMF/MaaGFNeuralCloud",
     "version": "1.0.0",
-    // Mirror酱为第三方分发服务，新项目默认关闭
-    // 若有需要请联系 Mirror酱 开通，直接自行开启是无法使用的
-    // "mirrorchyan_rid": "MaaXXX",
-    // "mirrorchyan_multiplatform": true,
     "controller": [
         {
             "name": "安卓端",
             "type": "Adb",
-            "display_short_side": 720 // 默认缩放分辨率的短边长度
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "class_regex": ".*",
-                "window_regex": "Visual Studio"
-            },
-            // 截图及控制方式，请根据项目实际情况修改
-            // 文档: https://github.com/MaaXYZ/MaaFramework/blob/main/docs/zh_cn/2.4-%E6%8E%A7%E5%88%B6%E6%96%B9%E5%BC%8F%E8%AF%B4%E6%98%8E.md
-            "screencap": "PrintWindow", // 截图方式
-            "mouse": "PostMessageWithCursorPos", // 鼠标控制方式
-            "keyboard": "PostMessageWithCursorPos" // 键盘控制方式
+            "display_short_side": 720
         }
     ],
     "resource": [
         {
             "name": "官服",
             "path": [
-                "{PROJECT_DIR}/resource"
+                "./resource/base"
             ]
         },
         {
@@ -51,54 +26,436 @@
             ]
         }
     ],
-    // 可选的 agent 示例
-    // "agent": {
-    //     "child_exec": "python",
-    //     "child_args": [
-    //         "{PROJECT_DIR}/agent/main.py"
-    //     ]
-    // },
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
+            "name": "启动游戏",
+            "entry": "StartGame"
         },
         {
-            "name": "选项任务",
-            "entry": "MyTask2",
+            "name": "宿舍收取",
+            "entry": "Dormitory"
+        },
+        {
+            "name": "基础检索",
+            "entry": "BasicSearch"
+        },
+        {
+            "name": "收集任务奖励",
+            "entry": "CollectReward"
+        },
+        {
+            "name": "绿洲收取",
+            "entry": "Oasis"
+        },
+        {
+            "name": "加工厂领取及生产",
+            "entry": "Workshop"
+        },
+        {
+            "name": "漏洞排查",
+            "entry": "ExploreVulnerability"
+        },
+        {
+            "name": "故障协议",
+            "entry": "ExploreFault"
+        },
+        {
+            "name": "碎片搜索",
+            "entry": "ExploreFragsSearch"
+        },
+        {
+            "name": "每日双倍",
+            "entry": "ExploreDoubleDay"
+        },
+        {
+            "name": "商店收取",
+            "entry": "Store",
             "option": [
-                "任务选项1"
+                "故障协议区",
+                "漏洞排查区"
             ]
         },
         {
-            "name": "参数任务",
-            "entry": "MyTask3",
+            "name": "资源采集",
+            "entry": "ExploreResourceCollect",
             "option": [
-                "任务选项1"
-            ],
-            "pipeline_override": {}
+                "采集关卡",
+                "作战次数"
+            ]
         },
         {
-            "name": "带Custom的任务",
-            "entry": "MyTask4"
+            "name": "算法采集",
+            "entry": "ExploreAlgorithm",
+            "option": [
+                "采集及筛取关卡",
+                "作战的次数"
+            ]
+        },
+        {
+            "name": "关闭游戏",
+            "entry": "StopGame"
         }
     ],
     "option": {
-        "任务选项1": {
+        "采集及筛取关卡": {
+            "type": "select",
+            "description": "选择想要采集的函数",
             "cases": [
                 {
-                    "name": "文本1",
+                    "name": "算法采集·进阶",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本1"
+                        "ExploreAlgorithmAdvanced": {
+                            "enabled": true
                         }
                     }
                 },
                 {
-                    "name": "文本2",
+                    "name": "算法筛取·闪避靶向",
                     "pipeline_override": {
-                        "OcrTask": {
-                            "text": "文本2"
+                        "ExploreAlgorithmEnvironment": {
+                            "enabled": true
+                        },
+                        "ExploreAlgorithmEnvironmentDodge": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "算法筛取·暴击靶向",
+                    "pipeline_override": {
+                        "ExploreAlgorithmEnvironment": {
+                            "enabled": true
+                        },
+                        "ExploreAlgorithmEnvironmentCrit": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "算法筛取·控制靶向",
+                    "pipeline_override": {
+                        "ExploreAlgorithmEnvironment": {
+                            "enabled": true
+                        },
+                        "ExploreAlgorithmEnvironmentControl": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "算法采集·单格",
+                    "pipeline_override": {
+                        "ExploreAlgorithmSingular": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "作战的次数": {
+            "type": "select",
+            "description": "作战几次",
+            "cases": [
+                {
+                    "name": "作战1次",
+                    "pipeline_override": {
+                        "ExploreAlgorithmBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战2次",
+                    "pipeline_override": {
+                        "ExploreAlgorithmBattleHit": {
+                            "enabled": true,
+                            "max_hit": 1
+                        },
+                        "ExploreAlgorithmBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战3次",
+                    "pipeline_override": {
+                        "ExploreAlgorithmBattleHit": {
+                            "enabled": true,
+                            "max_hit": 2
+                        },
+                        "ExploreAlgorithmBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战4次",
+                    "pipeline_override": {
+                        "ExploreAlgorithmBattleHit": {
+                            "enabled": true,
+                            "max_hit": 3
+                        },
+                        "ExploreAlgorithmBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "体力耗尽",
+                    "pipeline_override": {
+                        "ExploreAlgorithmBack": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "采集关卡": {
+            "type": "select",
+            "description": "选择想要采集的资源",
+            "cases": [
+                {
+                    "name": "底格币",
+                    "pipeline_override": {
+                        "ExploreResourceCollectDigg": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战经验",
+                    "pipeline_override": {
+                        "ExploreResourceCollectEXP": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "技能阵域",
+                    "pipeline_override": {
+                        "ExploreResourceCollectSkill": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "潜能特训医师",
+                    "pipeline_override": {
+                        "ExploreResourceCollectTalent": {
+                            "enabled": true
+                        },
+                        "ExploreResourceCollectTalentGoDoctor": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "潜能特训特种",
+                    "pipeline_override": {
+                        "ExploreResourceCollectTalent": {
+                            "enabled": true
+                        },
+                        "ExploreResourceCollectTalentGoSpecialist": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "潜能特训射手",
+                    "pipeline_override": {
+                        "ExploreResourceCollectTalent": {
+                            "enabled": true
+                        },
+                        "ExploreResourceCollectTalentGoMarksman": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "潜能特训战士",
+                    "pipeline_override": {
+                        "ExploreResourceCollectTalent": {
+                            "enabled": true
+                        },
+                        "ExploreResourceCollectTalentGoWarrior": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "潜能特训守卫",
+                    "pipeline_override": {
+                        "ExploreResourceCollectTalent": {
+                            "enabled": true
+                        },
+                        "ExploreResourceCollectTalentGoGuardian": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "作战次数": {
+            "type": "select",
+            "description": "选择作战次数",
+            "cases": [
+                {
+                    "name": "作战1次",
+                    "pipeline_override": {
+                        "ExploreResourceCollectBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战2次",
+                    "pipeline_override": {
+                        "ExploreResourceCollectBattleHit": {
+                            "enabled": true,
+                            "max_hit": 1
+                        },
+                        "ExploreResourceCollectBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战3次",
+                    "pipeline_override": {
+                        "ExploreResourceCollectBattleHit": {
+                            "enabled": true,
+                            "max_hit": 2
+                        },
+                        "ExploreResourceCollectBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "作战4次",
+                    "pipeline_override": {
+                        "ExploreResourceCollectBattleHit": {
+                            "enabled": true,
+                            "max_hit": 3
+                        },
+                        "ExploreResourceCollectBack": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "体力耗尽",
+                    "pipeline_override": {
+                        "ExploreResourceCollectBack": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        },
+        "故障协议区": {
+            "type": "select",
+            "description": "选择你想兑换的物品",
+            "cases": [
+                {
+                    "name": "心智碎片",
+                    "pipeline_override": {
+                        "StoreFaultShopFrags": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "极限突破控件·医师",
+                    "pipeline_override": {
+                        "StoreFaultShopEXdoctor": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "极限突破控件·特种",
+                    "pipeline_override": {
+                        "StoreFaultShopEXspecialist": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "极限突破控件·射手",
+                    "pipeline_override": {
+                        "StoreFaultShopEXmarksman": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "极限突破控件·守卫",
+                    "pipeline_override": {
+                        "StoreFaultShopEXguardian": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "极限突破控件·战士",
+                    "pipeline_override": {
+                        "StoreFaultShopEXwarrior": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "漏洞排查区": {
+            "type": "select",
+            "description": "选择你想要兑换的物品",
+            "cases": [
+                {
+                    "name": "心智碎片",
+                    "pipeline_override": {
+                        "StoreVulnerabilityShopFrags": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "医师",
+                    "pipeline_override": {
+                        "StoreVulnerabilityShopEXdoctor": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "特种",
+                    "pipeline_override": {
+                        "StoreVulnerabilityShopEXspecialist": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "射手",
+                    "pipeline_override": {
+                        "StoreVulnerabilityShopEXmarksman": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "守卫",
+                    "pipeline_override": {
+                        "StoreVulnerabilityShopEXguardian": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "战士",
+                    "pipeline_override": {
+                        "StoreVulnerabilityShopEXwarrior": {
+                            "enabled": true
                         }
                     }
                 }

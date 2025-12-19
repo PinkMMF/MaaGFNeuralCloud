@@ -1,0 +1,348 @@
+{
+    "ExploreAlgorithm": {
+        "next": [
+            "ExploreAlgorithmGo",
+            "[JumpBack]exploreResourcesRightGo"
+        ]
+    },
+    "ExploreAlgorithmGo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "算法采集"
+                ],
+                "roi": [
+                    633,
+                    340,
+                    617,
+                    59
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmAdvanced",
+            "ExploreAlgorithmSingular",
+            "ExploreAlgorithmEnvironmentDodge",
+            "ExploreAlgorithmEnvironmentCrit",
+            "ExploreAlgorithmEnvironmentControl",
+            "ExploreAlgorithmEnvironment"
+        ]
+    },
+    "ExploreAlgorithmAdvanced": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "进阶"
+                ],
+                "roi": [
+                    19,
+                    104,
+                    283,
+                    582
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmDoubleYes",
+            "ExploreAlgorithmDoubleNo"
+        ]
+    },
+    "ExploreAlgorithmEnvironment": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "环境"
+                ],
+                "roi": [
+                    19,
+                    104,
+                    283,
+                    582
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmEnvironmentDodge",
+            "ExploreAlgorithmEnvironmentCrit",
+            "ExploreAlgorithmEnvironmentControl"
+        ]
+    },
+    "ExploreAlgorithmEnvironmentDodge": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "闪避"
+                ],
+                "roi": [
+                    19,
+                    104,
+                    283,
+                    582
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmDoubleYes",
+            "ExploreAlgorithmDoubleNo"
+        ]
+    },
+    "ExploreAlgorithmEnvironmentCrit": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "暴击"
+                ],
+                "roi": [
+                    19,
+                    104,
+                    283,
+                    582
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmDoubleYes",
+            "ExploreAlgorithmDoubleNo"
+        ]
+    },
+    "ExploreAlgorithmEnvironmentControl": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "控制"
+                ],
+                "roi": [
+                    19,
+                    104,
+                    283,
+                    582
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmDoubleYes",
+            "ExploreAlgorithmDoubleNo"
+        ]
+    },
+    "ExploreAlgorithmSingular": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "单格"
+                ],
+                "roi": [
+                    19,
+                    104,
+                    283,
+                    582
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "ExploreAlgorithmDoubleYes",
+            "ExploreAlgorithmDoubleNo"
+        ]
+    },
+    "ExploreAlgorithmDoubleYes": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "开"
+                ],
+                "roi": [
+                    1002,
+                    574,
+                    246,
+                    38
+                ]
+            }
+        },
+        "next": [
+            "ExploreAlgorithmBattle"
+        ]
+    },
+    "ExploreAlgorithmDoubleNo": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "关"
+                ],
+                "roi": [
+                    1002,
+                    574,
+                    246,
+                    38
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 500,
+        "next": [
+            "ExploreAlgorithmBattle"
+        ]
+    },
+    "ExploreAlgorithmBattle": {
+        "doc": "点击自动战斗",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "自动战斗"
+                ],
+                "roi": [
+                    829,
+                    558,
+                    424,
+                    126
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "[JumpBack]ExploreAlgorithmBattleHit",
+            "[JumpBack]ExploreAlgorithmBattleGo",
+            "ExploreAlgorithmKeysNo",
+            "ExploreAlgorithmBack",
+            "ExploreAlgorithmBattle"
+        ]
+    },
+    "ExploreAlgorithmBattleHit": {
+        "doc": "选择作战次数",
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "开始作战"
+                ],
+                "roi": [
+                    227,
+                    136,
+                    828,
+                    448
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    880,
+                    439,
+                    118,
+                    55
+                ]
+            }
+        }
+    },
+    "ExploreAlgorithmBattleGo": {
+        "doc": "点击开始作战",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "开始作战"
+                ],
+                "roi": [
+                    227,
+                    109,
+                    826,
+                    502
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "fastBattleComplete"
+        ]
+    },
+    "ExploreAlgorithmBack": {
+        "enabled": false,
+        "next": [
+            "backOne"
+        ]
+    },
+    "ExploreAlgorithmKeysNo": {
+        "doc": "无体力",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "恢复"
+                ],
+                "roi": [
+                    742,
+                    89,
+                    520,
+                    72
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    347,
+                    142,
+                    346,
+                    422
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "backOne"
+        ]
+    }
+}

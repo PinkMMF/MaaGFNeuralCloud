@@ -1,0 +1,202 @@
+{
+    "BasicSearch": {
+        "doc": "基础检索抽取",
+        "next": [
+            "[JumpBack]backHome",
+            "[JumpBack]back",
+            "BasicSearchHomeSwipeleft"
+        ]
+    },
+    "BasicSearchHomeSwipeleft": {
+        "doc": "主界面向左滑动",
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1223,
+                    345,
+                    47,
+                    47
+                ],
+                "end": [
+                    486,
+                    345,
+                    48,
+                    47
+                ]
+            }
+        },
+        "next": [
+            "BasicSearchHomeGo",
+            "BasicSearchHomeSwipeleft"
+        ]
+    },
+    "BasicSearchHomeGo": {
+        "doc": "主界面前往抽卡界面",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1078,
+                    402,
+                    164,
+                    89
+                ],
+                "expected": [
+                    "心智检索"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "BasicSearchSwipeleft"
+        ]
+    },
+    "BasicSearchSwipeleft": {
+        "doc": "抽卡界面向左滑动",
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    667,
+                    653,
+                    44,
+                    33
+                ],
+                "end": [
+                    90,
+                    648,
+                    50,
+                    35
+                ]
+            }
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "BasicSearchGo",
+            "BasicSearchSwipeleft"
+        ]
+    },
+    "BasicSearchGo": {
+        "doc": "抽卡界面前往基础检索",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    535,
+                    624,
+                    183,
+                    83
+                ],
+                "expected": [
+                    "基础"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]BasicSearchCommandNumberYes",
+            "BasicSearchCommandNumberNo"
+        ]
+    },
+    "BasicSearchCommandNumberYes": {
+        "doc": "抽卡卷充足",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "[3-9]/40",
+                    "[1-3][0-9]/40",
+                    "40/40"
+                ],
+                "roi": [
+                    1109,
+                    27,
+                    69,
+                    41
+                ]
+            }
+        },
+        "next": [
+            "BasicSearchGacha10"
+        ]
+    },
+    "BasicSearchGacha10": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "检索10次"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "gachaSkip"
+        ]
+    },
+    "BasicSearchCommandNumberNo": {
+        "doc": "抽卡卷不足",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/40",
+                    "1/40"
+                ],
+                "roi": [
+                    1109,
+                    27,
+                    69,
+                    41
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]BasicSearchGacha1",
+            "backHome",
+            "back"
+        ]
+    },
+    "BasicSearchGacha1": {
+        "max_hit": 1,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "检索1次"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
+            "BasicSearchGacha1failure",
+            "gachaSkip"
+        ]
+    },
+    "BasicSearchGacha1failure": {
+        "doc": "单抽失败时点击确定",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
