@@ -101,6 +101,7 @@
         {
             "name": "基础检索",
             "entry": "BasicSearch",
+            "description": "基础抽卡卷不要超过50",
             "default_check": true
         },
         {

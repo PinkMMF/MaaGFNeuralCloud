@@ -27,7 +27,7 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 500,
+        "post_wait_freezes": 500,
         "next": [
             "receiveReward"
         ]
