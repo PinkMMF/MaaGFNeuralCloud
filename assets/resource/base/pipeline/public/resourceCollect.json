@@ -1,6 +1,7 @@
 {
     "resourceCollect": {
         "doc": "宿舍、绿洲和加工厂资源收取",
+        "max_hit": 3,
         "recognition": {
             "type": "OCR",
             "param": {
