@@ -1,7 +1,7 @@
 {
     "interface_version": 2,
     "name": "少女前线：云图计划自动化小助手",
-    "icon": "./resource/base/图标/MaaGFNeuralCloud.png",
+    "icon": "../imgs/MNCLogo.ico",
     "github": "https://github.com/PinkMMF/MaaGFNeuralCloud",
     "controller": [
         {
