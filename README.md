@@ -29,7 +29,7 @@
 
 ## 快速使用
 
-1. 从[Releases](https://github.com/PinkMMF/MaaGFNeuralCloud/releases)界面下载符合自身条件的压缩包，一般为MaaGFNeuralCloud-win-x86_64-v1.x.x.zip
+1. 从[Releases](https://github.com/PinkMMF/MaaGFNeuralCloud/releases)界面下载最新的符合自身条件的压缩包，一般为MaaGFNeuralCloud-win-x86_64-v1.x.x.zip
 2. 解压下载好的压缩包后双击或右键运行解压目录下的 `MaaGFNeuralCloud.exe` 文件。
 3. 阅读功能说明后进行配置即可
 
