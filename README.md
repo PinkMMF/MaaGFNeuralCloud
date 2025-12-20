@@ -11,8 +11,6 @@
 
 本项目为基于 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 进行开发的云图计划自动化小助手。
 
->本项目完全免费，如您付费购买请立即退款并举报。
-
 ## 联系方式
 
 暂无
