@@ -1,7 +1,6 @@
 {
     "interface_version": 2,
     "name": "少女前线：云图计划自动化小助手",
-    "icon": "../imgs/MNCLogo.ico",
     "github": "https://github.com/PinkMMF/MaaGFNeuralCloud",
     "controller": [
         {
@@ -27,6 +26,7 @@
         {
             "name": "宿舍收取",
             "entry": "Dormitory",
+            "description": "请确保至少添加了5位好友。",
             "default_check": true
         },
         {
@@ -37,12 +37,13 @@
         {
             "name": "加工厂领取及生产",
             "entry": "Workshop",
+            "description": "该功能只会生产上回订单，请自己先生产一次自己需要的物资。",
             "default_check": true
         },
         {
             "name": "漏洞排查",
             "entry": "ExploreVulnerability",
-            "description": "只适配到最高难度，请解锁最高难度快速作战后再使用此功能",
+            "description": "只适配到最高难度，请解锁最高难度快速作战后再使用此功能。",
             "default_check": true
         },
         {
@@ -53,7 +54,7 @@
         {
             "name": "碎片搜索",
             "entry": "ExploreFragsSearch",
-            "description": "使用该功能前确保碎片搜索中关注且仅关注三个人形",
+            "description": "使用该功能前确保碎片搜索中关注且仅关注三个人形。",
             "default_check": true
         },
         {
