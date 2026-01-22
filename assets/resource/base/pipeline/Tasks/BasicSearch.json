@@ -129,6 +129,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    1075,
+                    623,
+                    173,
+                    80
+                ],
                 "expected": [
                     "检索[2-9]次",
                     "检索10"
@@ -171,6 +177,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    890,
+                    622,
+                    174,
+                    80
+                ],
                 "expected": [
                     "检索1次"
                 ]
