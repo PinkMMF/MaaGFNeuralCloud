@@ -27,7 +27,8 @@
         },
         "post_wait_freezes": 500,
         "next": [
-            "[JumopBack]WorkshopReceive",
+            "[JumpBack]WorkshopReceive",
+            "[JumpBack]receiveReward",
             "WorkshopProduct"
         ]
     },
@@ -41,6 +42,12 @@
                     "全部",
                     "部领",
                     "领取"
+                ],
+                "roi": [
+                    28,
+                    448,
+                    228,
+                    101
                 ]
             }
         },
