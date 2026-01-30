@@ -5,7 +5,7 @@
 
 <div align="center">
 
-# MaaGFNuralCloud
+# MaaGFNeuralCloud
 
 </div>
 
