@@ -16,6 +16,9 @@
 b站视频评论区或私信
 <https://www.bilibili.com/video/BV1xPqDBVEGS/?spm_id_from=333.1387.homepage.video_card.click&vd_source=6a633c699886c3254ffe80d908964371>
 
+交流群：1079630187
+如有任何问题可以通过上述方式联系我
+
 ## 使用说明
 
 > [!NOTE]  
