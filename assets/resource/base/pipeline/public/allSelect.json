@@ -30,6 +30,31 @@
             }
         },
         "next": [
+            "OverflowHandling",
+            "allSelectBuy"
+        ]
+    },
+    "OverflowHandling": {
+        "doc": "该节点临时使用",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    856,
+                    487,
+                    160,
+                    58
+                ],
+                "expected": [
+                    "确认"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 500,
+        "next": [
             "allSelectBuy"
         ]
     },

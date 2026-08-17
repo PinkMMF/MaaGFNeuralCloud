@@ -1,0 +1,24 @@
+{
+    "storeScrollDown": {
+        "doc": "商店页面滚动屏幕",
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    457,
+                    609,
+                    14,
+                    8
+                ],
+                "end": [
+                    459,
+                    321,
+                    12,
+                    10
+                ],
+                "end_hold": 1000
+            }
+        },
+        "max_hit": 5
+    }
+}
